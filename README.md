@@ -1,0 +1,1 @@
+SensioGeneratorBundle alternative skeleton
