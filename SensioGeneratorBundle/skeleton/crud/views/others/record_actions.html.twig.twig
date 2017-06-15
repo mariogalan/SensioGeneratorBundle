@@ -1,0 +1,61 @@
+<div class="container">
+
+    {#<div class="container">#}
+    {#{% if is_granted('ROLE_EDITOR') %}#}
+    {#<div class="row">#}
+    {#<a class="btn btn-info" href="{{ path('embarque_edit', { 'id': embarque.id }) }}"><span#}
+    {#class="glyphicon glyphicon-edit"></span> Editar</a>#}
+    {#<div class="pull-right">  {{ form_start(delete_form) }}#}
+    {#<input type="submit" class="btn btn-danger icon-search icon-white" value="Eliminar">#}
+    {#{{ form_end(delete_form) }}</div>#}
+    {#</div>#}
+    {#{% endif %}#}
+    {#<div class="row">#}
+    {#<a class="btn btn-primary" href="{{ path('embarque_index') }}"><span#}
+    {#class="glyphicon glyphicon-chevron-left"></span> Volver </a>#}
+    {#</div>#}
+    {#</div>#}
+
+    <div class="row">
+        <div class="col-md-12">
+            {%- if ('edit' in actions) and (not hide_edit) %}
+
+
+
+                {% if edit_button %}
+                    <button type="submit" class="btn btn-info">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+                    </button>
+                {% else %}
+                    <a class="btn btn-info"
+                       href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">
+                        <span class="glyphicon glyphicon-edit"></span> Editar
+                    </a>
+                {% endif %}
+
+            {%- endif %}
+
+            {%- if ('delete' in actions) and (not hide_delete) %}
+
+                <div class="pull-right">
+                    {{ '{{ form_start(delete_form) }}' }}
+                    {#<input type="submit" value="Delete">#}
+                    <input type="submit" class="btn btn-danger icon-search icon-white" value="Eliminar">
+
+                    {{ '{{ form_end(delete_form) }}' }}
+                </div>
+
+            {%- endif %}
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-primary" href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}"><span
+                        class="glyphicon glyphicon-chevron-left"></span> Volver</a>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,23 @@
+{% block extends %}
+    {{ "{% extends 'BrabioThemeBundle::base_app.html.twig' %}" }}
+{% endblock extends %}
+
+{{ "{% block page_title %}" }}
+Crear {{ entity_singularized|capitalize }}
+{{ "{% endblock %}" }}
+
+{% block body %}
+    {{ "{% block page_content %}" }}
+    {{ '{{ form_start(form) }}' }}
+        {{ '{{ form_widget(form) }}' }}
+    <button type="submit" class="btn btn-info">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear {{ entity_singularized|capitalize }}
+    </button>
+
+    {% set hide_edit, hide_delete, edit_button = true, true, false %}
+    {{ include('crud/views/others/record_actions.html.twig.twig') -}}
+    {{ '{{ form_end(form) }}' }}
+
+
+{{ "{% endblock %}" }}
+{% endblock body %}

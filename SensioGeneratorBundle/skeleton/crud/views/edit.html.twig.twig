@@ -1,0 +1,22 @@
+{% block extends %}
+    {{ "{% extends 'BrabioThemeBundle::base_app.html.twig' %}" }}
+{% endblock extends %}
+
+{{ "{% block page_title %}" }}
+Editar {{ entity_singularized|capitalize }}
+{{ "{% endblock %}" }}
+
+{% block body %}
+    {{ "{% block page_content %}" }}
+    {{ '{{ form_start(edit_form) }}' }}
+    {{ '{{ form_widget(edit_form) }}' }}
+    {#<button type="submit" class="btn btn-info">#}
+        {#<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Editar {{ entity_singularized|capitalize }}#}
+    {#</button>#}
+    {% set hide_edit, hide_delete, edit_button = false, true, true %}
+    {{ include('crud/views/others/record_actions.html.twig.twig') -}}
+    {{ '{{ form_end(edit_form) }}' }}
+
+
+    {{ "{% endblock %}" }}
+{% endblock body %}
