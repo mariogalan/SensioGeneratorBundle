@@ -3,7 +3,7 @@
 {% endblock extends %}
 
 {{ "{% block page_title %}" }}
-{{ entity_singularized|capitalize }}
+{{ '{% trans %}' ~ entity_singularized|capitalize ~ '{% endtrans %}' }}
 {{ "{% endblock %}" }}
 
 {% block body %}
@@ -13,7 +13,7 @@
         {%- for field, metadata in fields %}
 
             <tr>
-                <th>{{ field|capitalize }}</th>
+                <th>{{ '{% trans %}' }}{{ field|capitalize }}{{ '{% endtrans %}' }}</th>
 
             {%- if metadata.type in ['datetime'] %}
 

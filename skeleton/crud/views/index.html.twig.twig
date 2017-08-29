@@ -3,7 +3,7 @@
 {% endblock extends %}
 
 {{ "{% block page_title %}" }}
-Listado de {{ entity_pluralized|capitalize }}
+{{ '{% trans %}' }}Listing{{ '{% endtrans %}' }} {{ '{% trans %}' ~ entity_pluralized|capitalize ~ '{% endtrans %}' }}
 {{ "{% endblock %}" }}
 
 {% block body %}
@@ -13,11 +13,11 @@ Listado de {{ entity_pluralized|capitalize }}
             <tr>
             {%- for field, metadata in fields %}
 
-                <th>{{ field|capitalize }}</th>
+                <th>{{ '{% trans %}' }}{{ field|capitalize }}{{ '{% endtrans %}' }}</th>
 
             {%- endfor %}
 
-                <th>Actions</th>
+                <th>{{ '{% trans %}' }}Actions{{ '{% endtrans %}' }}</th>
             </tr>
         </thead>
         <tbody>
@@ -96,7 +96,7 @@ Listado de {{ entity_pluralized|capitalize }}
 
     {% if 'new' in actions -%}
             <a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-info"><span
-                        class="glyphicon glyphicon-plus"></span> Crear {{ entity_singularized }}</a>
+                        class="glyphicon glyphicon-plus"></span> {{ '{% trans %}' }}Create{{ '{% endtrans %}' }} {{ '{% trans %}' ~ entity_singularized ~ '{% endtrans %}' }}</a>
     {%- endif %}
 
 {{ "{% endblock %}" }}

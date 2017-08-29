@@ -3,7 +3,7 @@
 {% endblock extends %}
 
 {{ "{% block page_title %}" }}
-Crear {{ entity_singularized|capitalize }}
+{{ '{% trans %}' }}Create{{ '{% endtrans %}' }} {{ '{% trans %}' ~ entity_singularized|capitalize ~ '{% endtrans %}' }}
 {{ "{% endblock %}" }}
 
 {% block body %}
