@@ -65,7 +65,7 @@
                             <a class="btn btn-{{ action == 'show' ? 'primary' : 'dark' }} text-left" href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">
                                 <span class="glyphicon glyphicon-{{ action == 'show' ? 'eye-open' : 'edit' }}"></span>
 
-                                {{ action }}
+                                {{ '{% trans %}' }}{{ action }}{{ '{% endtrans %}' }}
                             </a>
                         {% endspaceless %}
                     {%- endfor %}
