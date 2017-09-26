@@ -11,7 +11,7 @@
     {{ '{{ form_start(form) }}' }}
         {{ '{{ form_widget(form) }}' }}
     <button type="submit" class="btn btn-info">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear {{ entity_singularized|capitalize }}
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear {{ '{% trans %}' }}{{ entity_singularized|capitalize }}{{  '{% endtrans %}' }}
     </button>
 
     {% set hide_edit, hide_delete, edit_button = true, true, false %}
